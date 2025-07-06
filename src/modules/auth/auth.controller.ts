@@ -1,5 +1,10 @@
 import {
-  Controller, Get, Post, Req, Res, Body, UnauthorizedException
+  Controller,
+  Get,
+  Post,
+  Req,
+  Res,
+  Body,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { AuthService } from './auth.service';
@@ -9,7 +14,9 @@ export class AuthController {
   constructor(private readonly auth: AuthService) {}
 
   @Get('login')
-  getLogin(@Res() res:Response) { res.render('login'); }
+  getLogin(@Res() res: Response) {
+    res.render('login');
+  }
 
   @Post('login')
   async postLogin(
@@ -17,7 +24,10 @@ export class AuthController {
     @Res() res:Response
   ){
     const time = await this.auth.validateUser(body.username, body.password);
-    if (!time) throw new UnauthorizedException('Usuário ou senha inválidos');
+    if (!time)
+      return res
+        .status(401)
+        .render('login', { error: 'Usuário ou senha inválidos' });
 
     res.cookie('user', body.username, {httpOnly:true});
     res.redirect('/usuarios');
