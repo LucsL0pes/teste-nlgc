@@ -20,11 +20,15 @@ let AuthController = class AuthController {
     constructor(auth) {
         this.auth = auth;
     }
-    getLogin(res) { res.render('login'); }
+    getLogin(res) {
+        res.render('login');
+    }
     async postLogin(body, res) {
         const time = await this.auth.validateUser(body.username, body.password);
         if (!time)
-            throw new common_1.UnauthorizedException('Usuário ou senha inválidos');
+            return res
+                .status(401)
+                .render('login', { error: 'Usuário ou senha inválidos' });
         res.cookie('user', body.username, { httpOnly: true });
         res.redirect('/usuarios');
     }

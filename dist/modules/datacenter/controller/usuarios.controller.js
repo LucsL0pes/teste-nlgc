@@ -11,12 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var _a, _b, _c, _d;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsuariosController = void 0;
 const common_1 = require("@nestjs/common");
-const usuarios_services_1 = require("../service/usuarios.services");
-const auth_service_1 = require("../../../auth/auth.service");
+const usuarios_service_1 = require("../service/usuarios.service");
+const auth_service_1 = require("../../auth/auth.service");
 let UsuariosController = class UsuariosController {
     usuariosService;
     authService;
@@ -28,7 +27,7 @@ let UsuariosController = class UsuariosController {
         const username = req.cookies?.user;
         if (!username)
             return { redirect: '/login' };
-        const team = this.authService.getTeam(username);
+        const team = this.authService.getTime(username);
         const usuarios = this.usuariosService.getAllEnrichedByTeam(team);
         return { usuarios, ambientesValidos: ['AWS', 'AZR', 'B3', 'GCP', 'EQX', 'LWB', 'STECH', 'CMD'] };
     }
@@ -42,7 +41,7 @@ let UsuariosController = class UsuariosController {
         const username = req.cookies?.user;
         if (!username)
             return res.redirect('/login');
-        const team = this.authService.getTeam(username);
+        const team = this.authService.getTime(username);
         const usuarios = this.usuariosService.getAllEnrichedByTeam(team);
         const pendentes = usuarios.flatMap(u => (u.solicitacoes ?? []).map(s => ({
             username: u.username,
@@ -78,7 +77,7 @@ __decorate([
     __param(0, (0, common_1.Param)('username')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_c = typeof usuarios_services_1.Solicitacao !== "undefined" && usuarios_services_1.Solicitacao) === "function" ? _c : Object]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], UsuariosController.prototype, "add", null);
 __decorate([
@@ -86,7 +85,7 @@ __decorate([
     __param(0, (0, common_1.Param)('username')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_d = typeof usuarios_services_1.Solicitacao !== "undefined" && usuarios_services_1.Solicitacao) === "function" ? _d : Object]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], UsuariosController.prototype, "remove", null);
 __decorate([
@@ -99,6 +98,7 @@ __decorate([
 ], UsuariosController.prototype, "downloadAndClear", null);
 exports.UsuariosController = UsuariosController = __decorate([
     (0, common_1.Controller)('usuarios'),
-    __metadata("design:paramtypes", [typeof (_a = typeof usuarios_services_1.UsuariosService !== "undefined" && usuarios_services_1.UsuariosService) === "function" ? _a : Object, typeof (_b = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" ? _b : Object])
+    __metadata("design:paramtypes", [usuarios_service_1.UsuariosService,
+        auth_service_1.AuthService])
 ], UsuariosController);
 //# sourceMappingURL=usuarios.controller.js.map
