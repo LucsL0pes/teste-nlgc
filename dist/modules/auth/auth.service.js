@@ -15,6 +15,10 @@ const path_1 = require("path");
 const STORAGE_DIR = (0, path_1.join)(process.cwd(), 'storage');
 const ADM_FILE = (0, path_1.join)(STORAGE_DIR, 'admin-users.json');
 const SALT_ROUNDS = 10;
+function timeFromUsername(username) {
+    const m = username.match(/^admin_(.+)$/i);
+    return m ? m[1].toUpperCase() : undefined;
+}
 let AuthService = AuthService_1 = class AuthService {
     log = new common_1.Logger(AuthService_1.name);
     admins = new Map();
@@ -32,6 +36,18 @@ let AuthService = AuthService_1 = class AuthService {
                     Object.entries(raw).forEach(([u, h]) => this.admins.set(u, { hash: h }));
                 }
                 this.log.log(`Admin-users carregados: ${this.admins.size}`);
+                let changed = false;
+                this.admins.forEach((v, u) => {
+                    if (!v.time) {
+                        const t = timeFromUsername(u);
+                        if (t) {
+                            v.time = t;
+                            changed = true;
+                        }
+                    }
+                });
+                if (changed)
+                    this.persist();
             }
             catch (e) {
                 this.log.error('Falha ao ler admin-users.json', e);

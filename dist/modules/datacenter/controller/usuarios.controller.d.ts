@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { UsuariosService, Solicitacao } from '../service/usuarios.services';
-import { AuthService } from '../../../auth/auth.service';
+import { UsuariosService, Solicitacao } from '../service/usuarios.service';
+import { AuthService } from '../../auth/auth.service';
 export declare class UsuariosController {
     private readonly usuariosService;
     private readonly authService;
@@ -10,11 +10,21 @@ export declare class UsuariosController {
         usuarios?: undefined;
         ambientesValidos?: undefined;
     } | {
-        usuarios: any;
+        usuarios: {
+            ambientesHabilitados: string[];
+            ambientesDesabilitados: string[];
+            solicitacoes: Solicitacao[];
+            username: string;
+            nome: string;
+            time: string;
+            ambientes?: import("../service/usuarios.service").Ambiente[];
+        }[];
         ambientesValidos: string[];
         redirect?: undefined;
     };
-    add(u: string, b: Solicitacao): any;
-    remove(u: string, b: Solicitacao): any;
+    add(u: string, b: Solicitacao): import("../service/usuarios.service").Usuario;
+    remove(u: string, b: Solicitacao): {
+        ok: boolean;
+    };
     downloadAndClear(req: Request, res: Response): Promise<void | Response<any, Record<string, any>>>;
 }

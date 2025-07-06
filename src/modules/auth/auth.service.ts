@@ -13,6 +13,11 @@ const SALT_ROUNDS = 10;
 
 interface AdminFileEntry { username: string; hash: string; time?: string; }
 
+function timeFromUsername(username: string): string | undefined {
+  const m = username.match(/^admin_(.+)$/i);
+  return m ? m[1].toUpperCase() : undefined;
+}
+
 @Injectable()
 export class AuthService implements OnModuleInit, OnModuleDestroy {
   private readonly log = new Logger(AuthService.name);
@@ -45,6 +50,18 @@ export class AuthService implements OnModuleInit, OnModuleDestroy {
           );
         }
         this.log.log(`Admin-users carregados: ${this.admins.size}`);
+        // atribui time automaticamente se não estiver definido
+        let changed = false;
+        this.admins.forEach((v, u) => {
+          if (!v.time) {
+            const t = timeFromUsername(u);
+            if (t) {
+              v.time = t;
+              changed = true;
+            }
+          }
+        });
+        if (changed) this.persist();
       } catch (e) {
         this.log.error('Falha ao ler admin-users.json', e as any);
       }
