@@ -4,10 +4,31 @@
     "nome": "Vitor Hugo Welter",
     "time": "SI",
     "ambientes": [
-      { "nome": "LWB", "grupos": ["GRP_LWB_RO", "GRP_LWB_SUDO"] },
-      { "nome": "EQX", "grupos": ["GRP_EQX_RW"] },
-      { "nome": "GCP", "grupos": ["GRP_GCP_VIEW"] },
-      { "nome": "AWS", "grupos": ["GRP_AWS_ADMIN"] }
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO",
+          "GRP_LWB_SUDO"
+        ]
+      },
+      {
+        "nome": "EQX",
+        "grupos": [
+          "GRP_EQX_RW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_ADMIN"
+        ]
+      }
     ],
     "solicitacoes": []
   },
@@ -16,10 +37,30 @@
     "nome": "Raul Cataluna Athayde",
     "time": "SI",
     "ambientes": [
-      { "nome": "LWB", "grupos": ["GRP_LWB_RO"] },
-      { "nome": "EQX", "grupos": ["GRP_EQX_RO"] },
-      { "nome": "GCP", "grupos": ["GRP_GCP_VIEW"] },
-      { "nome": "AWS", "grupos": ["GRP_AWS_VIEW"] }
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      },
+      {
+        "nome": "EQX",
+        "grupos": [
+          "GRP_EQX_RO"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      }
     ],
     "solicitacoes": []
   },
@@ -28,11 +69,1830 @@
     "nome": "Yan Carlos Machado",
     "time": "SI",
     "ambientes": [
-      { "nome": "LWB", "grupos": ["GRP_LWB_RO"] },
-      { "nome": "EQX", "grupos": ["GRP_EQX_ADMIN"] },
-      { "nome": "GCP", "grupos": ["GRP_GCP_VIEW"] },
-      { "nome": "AWS", "grupos": ["GRP_AWS_POWER"] },
-      { "nome": "B3",  "grupos": ["GRP_B3_FULL"] }
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      },
+      {
+        "nome": "EQX",
+        "grupos": [
+          "GRP_EQX_ADMIN"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_POWER"
+        ]
+      },
+      {
+        "nome": "B3",
+        "grupos": [
+          "GRP_B3_FULL"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "solutiontech_user1",
+    "nome": "Colaborador 1 SOLUTIONTECH",
+    "time": "SOLUTIONTECH",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "solutiontech_user2",
+    "nome": "Colaborador 2 SOLUTIONTECH",
+    "time": "SOLUTIONTECH",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "solutiontech_user3",
+    "nome": "Colaborador 3 SOLUTIONTECH",
+    "time": "SOLUTIONTECH",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "desktop_user1",
+    "nome": "Colaborador 1 DESKTOP",
+    "time": "DESKTOP",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "desktop_user2",
+    "nome": "Colaborador 2 DESKTOP",
+    "time": "DESKTOP",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "desktop_user3",
+    "nome": "Colaborador 3 DESKTOP",
+    "time": "DESKTOP",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "web_user1",
+    "nome": "Colaborador 1 WEB",
+    "time": "WEB",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "web_user2",
+    "nome": "Colaborador 2 WEB",
+    "time": "WEB",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "web_user3",
+    "nome": "Colaborador 3 WEB",
+    "time": "WEB",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "institutional_user1",
+    "nome": "Colaborador 1 INSTITUTIONAL",
+    "time": "INSTITUTIONAL",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "institutional_user2",
+    "nome": "Colaborador 2 INSTITUTIONAL",
+    "time": "INSTITUTIONAL",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "institutional_user3",
+    "nome": "Colaborador 3 INSTITUTIONAL",
+    "time": "INSTITUTIONAL",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "intsys_user1",
+    "nome": "Colaborador 1 INTSYS",
+    "time": "INTSYS",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "intsys_user2",
+    "nome": "Colaborador 2 INTSYS",
+    "time": "INTSYS",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "intsys_user3",
+    "nome": "Colaborador 3 INTSYS",
+    "time": "INTSYS",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "qa_user1",
+    "nome": "Colaborador 1 QA",
+    "time": "QA",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "qa_user2",
+    "nome": "Colaborador 2 QA",
+    "time": "QA",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "qa_user3",
+    "nome": "Colaborador 3 QA",
+    "time": "QA",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "seginfo_user1",
+    "nome": "Colaborador 1 SEGINFO",
+    "time": "SEGINFO",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "seginfo_user2",
+    "nome": "Colaborador 2 SEGINFO",
+    "time": "SEGINFO",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "seginfo_user3",
+    "nome": "Colaborador 3 SEGINFO",
+    "time": "SEGINFO",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "sysadmin_user1",
+    "nome": "Colaborador 1 SYSADMIN",
+    "time": "SYSADMIN",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "sysadmin_user2",
+    "nome": "Colaborador 2 SYSADMIN",
+    "time": "SYSADMIN",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "sysadmin_user3",
+    "nome": "Colaborador 3 SYSADMIN",
+    "time": "SYSADMIN",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "automation_user1",
+    "nome": "Colaborador 1 AUTOMATION",
+    "time": "AUTOMATION",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "automation_user2",
+    "nome": "Colaborador 2 AUTOMATION",
+    "time": "AUTOMATION",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "automation_user3",
+    "nome": "Colaborador 3 AUTOMATION",
+    "time": "AUTOMATION",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "cloud_user1",
+    "nome": "Colaborador 1 CLOUD",
+    "time": "CLOUD",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "cloud_user2",
+    "nome": "Colaborador 2 CLOUD",
+    "time": "CLOUD",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "cloud_user3",
+    "nome": "Colaborador 3 CLOUD",
+    "time": "CLOUD",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "networks_user1",
+    "nome": "Colaborador 1 NETWORKS",
+    "time": "NETWORKS",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "networks_user2",
+    "nome": "Colaborador 2 NETWORKS",
+    "time": "NETWORKS",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "networks_user3",
+    "nome": "Colaborador 3 NETWORKS",
+    "time": "NETWORKS",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "ia_user1",
+    "nome": "Colaborador 1 IA",
+    "time": "IA",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "ia_user2",
+    "nome": "Colaborador 2 IA",
+    "time": "IA",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "ia_user3",
+    "nome": "Colaborador 3 IA",
+    "time": "IA",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "heads_user1",
+    "nome": "Colaborador 1 HEADS",
+    "time": "HEADS",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "heads_user2",
+    "nome": "Colaborador 2 HEADS",
+    "time": "HEADS",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "heads_user3",
+    "nome": "Colaborador 3 HEADS",
+    "time": "HEADS",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "marketing_user1",
+    "nome": "Colaborador 1 MARKETING",
+    "time": "MARKETING",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "marketing_user2",
+    "nome": "Colaborador 2 MARKETING",
+    "time": "MARKETING",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "marketing_user3",
+    "nome": "Colaborador 3 MARKETING",
+    "time": "MARKETING",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "noc_user1",
+    "nome": "Colaborador 1 NOC",
+    "time": "NOC",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "noc_user2",
+    "nome": "Colaborador 2 NOC",
+    "time": "NOC",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "noc_user3",
+    "nome": "Colaborador 3 NOC",
+    "time": "NOC",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "api_user1",
+    "nome": "Colaborador 1 API",
+    "time": "API",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "api_user2",
+    "nome": "Colaborador 2 API",
+    "time": "API",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "api_user3",
+    "nome": "Colaborador 3 API",
+    "time": "API",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "db_user1",
+    "nome": "Colaborador 1 DB",
+    "time": "DB",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "db_user2",
+    "nome": "Colaborador 2 DB",
+    "time": "DB",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "db_user3",
+    "nome": "Colaborador 3 DB",
+    "time": "DB",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "marketdata_user1",
+    "nome": "Colaborador 1 MARKETDATA",
+    "time": "MARKETDATA",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "marketdata_user2",
+    "nome": "Colaborador 2 MARKETDATA",
+    "time": "MARKETDATA",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "marketdata_user3",
+    "nome": "Colaborador 3 MARKETDATA",
+    "time": "MARKETDATA",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "tradingsystems_user1",
+    "nome": "Colaborador 1 TRADINGSYSTEMS",
+    "time": "TRADINGSYSTEMS",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "tradingsystems_user2",
+    "nome": "Colaborador 2 TRADINGSYSTEMS",
+    "time": "TRADINGSYSTEMS",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "tradingsystems_user3",
+    "nome": "Colaborador 3 TRADINGSYSTEMS",
+    "time": "TRADINGSYSTEMS",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "akeloo_user1",
+    "nome": "Colaborador 1 AKELOO",
+    "time": "AKELOO",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "akeloo_user2",
+    "nome": "Colaborador 2 AKELOO",
+    "time": "AKELOO",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "akeloo_user3",
+    "nome": "Colaborador 3 AKELOO",
+    "time": "AKELOO",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "infra_user1",
+    "nome": "Colaborador 1 INFRA",
+    "time": "INFRA",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "infra_user2",
+    "nome": "Colaborador 2 INFRA",
+    "time": "INFRA",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "infra_user3",
+    "nome": "Colaborador 3 INFRA",
+    "time": "INFRA",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "database_user1",
+    "nome": "Colaborador 1 DATABASE",
+    "time": "DATABASE",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "database_user2",
+    "nome": "Colaborador 2 DATABASE",
+    "time": "DATABASE",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "database_user3",
+    "nome": "Colaborador 3 DATABASE",
+    "time": "DATABASE",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "supportn3_user1",
+    "nome": "Colaborador 1 SUPPORTN3",
+    "time": "SUPPORTN3",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "supportn3_user2",
+    "nome": "Colaborador 2 SUPPORTN3",
+    "time": "SUPPORTN3",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "supportn3_user3",
+    "nome": "Colaborador 3 SUPPORTN3",
+    "time": "SUPPORTN3",
+    "ambientes": [
+      {
+        "nome": "AWS",
+        "grupos": [
+          "GRP_AWS_VIEW"
+        ]
+      },
+      {
+        "nome": "GCP",
+        "grupos": [
+          "GRP_GCP_VIEW"
+        ]
+      },
+      {
+        "nome": "LWB",
+        "grupos": [
+          "GRP_LWB_RO"
+        ]
+      }
     ],
     "solicitacoes": []
   }
