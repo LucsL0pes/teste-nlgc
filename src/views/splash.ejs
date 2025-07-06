@@ -1,9 +1,42 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gestão de Acessos</title>
-<style>body{display:flex;align-items:center;justify-content:center;
-height:100vh;background:#1b1f26;color:#00a1f6;font-family:Segoe UI,Arial}</style>
-<script>setTimeout(()=>location.href='/login',3000)</script>
-</head><body>
-<h1>Bem-vindo… redirecionando</h1>
-</body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gestão de Acessos</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: #1b1f26;
+        color: #00a1f6;
+        font-family: Segoe UI, Arial;
+      }
+      .spinner {
+        border: 4px solid #3b414f;
+        border-top: 4px solid #00a1f6;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin-top: 1rem;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <script>
+      setTimeout(() => (location.href = '/login'), 3000);
+    </script>
+  </head>
+  <body>
+    <h1>Bem-vindo... redirecionando</h1>
+    <div class="spinner"></div>
+  </body>
+</html>
