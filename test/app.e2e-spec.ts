@@ -17,7 +17,7 @@ describe('AppController (e2e)', () => {
 
     app = moduleFixture.createNestApplication<NestExpressApplication>();
     app.use(cookieParser());
-    app.use('/public', express.static('public'));
+    app.use('/public', express.static(join(__dirname, '..', 'src', 'public')));
     app.setBaseViewsDir(join(__dirname, '..', 'src', 'views'));
     app.setViewEngine('ejs');
     await app.init();
