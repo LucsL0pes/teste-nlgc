@@ -10,8 +10,8 @@ import {
   Res,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { UsuariosService, Solicitacao } from '../service/usuarios.services';
-import { AuthService } from './auth/auth.service';
+import { UsuariosService, Solicitacao } from '../service/usuarios.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Controller('usuarios')
 export class UsuariosController {
@@ -27,7 +27,7 @@ export class UsuariosController {
     const username = (req.cookies as any)?.user;
     if (!username) return { redirect: '/login' };
 
-    const team      = this.authService.getTeam(username);
+    const team      = this.authService.getTime(username);
     const usuarios  = this.usuariosService.getAllEnrichedByTeam(team!);
 
     return { usuarios, ambientesValidos: ['AWS','AZR','B3','GCP','EQX','LWB','STECH','CMD'] };
@@ -53,7 +53,7 @@ export class UsuariosController {
     const username = req.cookies?.user;
     if (!username) return res.redirect('/login');
 
-    const team  = this.authService.getTeam(username)!;
+    const team  = this.authService.getTime(username)!;
     const usuarios = this.usuariosService.getAllEnrichedByTeam(team);
 
     const pendentes = usuarios.flatMap(u =>

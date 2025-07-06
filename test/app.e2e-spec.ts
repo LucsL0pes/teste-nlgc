@@ -1,18 +1,25 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
+import { NestExpressApplication } from '@nestjs/platform-express';
 import * as request from 'supertest';
-import { App } from 'supertest/types';
 import { AppModule } from './../src/app.module';
+import * as express from 'express';
+import * as cookieParser from 'cookie-parser';
+import { join } from 'path';
 
 describe('AppController (e2e)', () => {
-  let app: INestApplication<App>;
+  let app: NestExpressApplication;
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
 
-    app = moduleFixture.createNestApplication();
+    app = moduleFixture.createNestApplication<NestExpressApplication>();
+    app.use(cookieParser());
+    app.use('/public', express.static('public'));
+    app.setBaseViewsDir(join(__dirname, '..', 'src', 'views'));
+    app.setViewEngine('ejs');
     await app.init();
   });
 
@@ -20,6 +27,6 @@ describe('AppController (e2e)', () => {
     return request(app.getHttpServer())
       .get('/')
       .expect(200)
-      .expect('Hello World!');
+      .expect(/Bem-vindo/);
   });
 });
