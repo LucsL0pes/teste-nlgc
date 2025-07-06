@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Gestão de Acessos</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="/public/style.css" />
     <style>
       :root {
         --primary: #00a1f6;
@@ -26,17 +27,21 @@
         margin: 2rem auto;
         padding: 0 1rem;
       }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
       .logo {
-        display: block;
-        margin: 0 auto 1rem;
+        height: 40px;
       }
       h2 {
-        text-align: center;
+        margin: 0;
         color: var(--primary);
       }
       .logout-btn {
-        float: right;
-        margin: 1rem 0;
+        margin: 0;
         background: var(--primary);
         color: #fff;
         border: none;
@@ -134,16 +139,28 @@
         gap: 0.4rem;
         cursor: pointer;
       }
+      .user-info {
+        display: flex;
+        align-items: center;
+      }
+      .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <button class="logout-btn" onclick="location.href='/logout'">
-        <span class="material-icons">logout</span>
-        Sair
-      </button>
-      <img src="/public/logo-nelogica.svg" class="logo" alt="Nelogica" />
-      <h2>Gestão de Acessos</h2>
+      <div class="header">
+        <img src="/public/logo-nelogica.svg" class="logo" alt="Nelogica" />
+        <h2>Gestão de Acessos</h2>
+        <button class="logout-btn" onclick="location.href='/logout'">
+          <span class="material-icons">logout</span>
+          Sair
+        </button>
+      </div>
 
       <div class="search-box">
         <input id="user-filter" placeholder="🔍 Filtrar por usuário…" oninput="filtrar()" />
@@ -162,9 +179,12 @@
           <tbody>
             <% usuarios.forEach(user => { %>
             <tr data-username="<%= user.username.toLowerCase() %>">
-              <td>
-                <strong><%= user.username %></strong><br />
-                <small><%= user.nome %></small>
+              <td class="user-info">
+                <img class="avatar" src="https://api.dicebear.com/7.x/initials/svg?seed=<%= user.username %>&backgroundColor=00a1f6&textColor=ffffff" alt="<%= user.username %>" />
+                <div>
+                  <strong><%= user.username %></strong><br />
+                  <small><%= user.nome %></small>
+                </div>
               </td>
               <td>
                 <% (user.ambientes || []).forEach(env => { %>
