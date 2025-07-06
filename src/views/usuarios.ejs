@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<title>Gestão de Acessos</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+/* … (o CSS completo que refinamos) …  */
+</style></head><body>
+<div class="container">
+<button class="logout-btn" onclick="location.href='/logout'">
+<span class="material-icons">logout</span> Sair</button>
+<img src="/public/logo-nelogica.png" class="logo" alt="Nelogica">
+<h2>Gestão de Acessos</h2>
+
+<div class="search-box">
+<input id="user-filter" placeholder="🔍 Filtrar por usuário…" oninput="filtrar()">
+</div>
+
+<div class="table-wrapper"><table id="usuarios-table">
+<thead><tr><th>Usuário</th><th>Ambientes</th><th>Ações</th><th>Solicitações</th></tr></thead>
+<tbody>
+<% usuarios.forEach(user=>{ %>
+<tr data-username="<%= user.username.toLowerCase() %>">
+<td><strong><%= user.username %></strong><br><small><%= user.nome %></small></td>
+<td>
+  <% (user.ambientes||[]).forEach(env=>{ %>
+  <span class="badge green" title="<%= env.grupos.join(', ') %>"><%= env.nome %></span>
+  <% }) %>
+  <% (user.ambientesDesabilitados||[]).forEach(a=>{ %>
+  <span class="badge red"><%= a %></span><% }) %>
+</td>
+<td class="actions">
+  <select id="tipo-<%=user.username%>"><option>Adicionar</option><option>Remover</option></select>
+  <select id="amb-<%=user.username%>">
+    <% ambientesValidos.forEach(a=>{ %><option><%=a%></option><% }) %>
+  </select>
+  <button onclick="add('<%=user.username%>')"><span class="material-icons">add</span></button>
+</td>
+<td class="sol-container">
+  <div class="sol-header" onclick="toggle('<%=user.username%>')">
+    <span class="material-icons">list_alt</span>
+    <span class="count" id="count-<%=user.username%>"><%= (user.solicitacoes||[]).length %></span>
+  </div>
+  <div class="sol-list collapsed" id="sol-<%=user.username%>">
+    <% (user.solicitacoes||[]).forEach(s=>{ %>
+      <div class="sol-item"><%= s.tipo %> – <%= s.ambiente %></div><% }) %>
+  </div>
+</td></tr><% }) %>
+</tbody></table></div>
+
+<button class="btn-salvar" onclick="baixar()">
+<span class="material-icons">download</span> Baixar Documento</button>
+</div>
+
+<script>
+function filtrar(){
+  const t=document.getElementById('user-filter').value.toLowerCase();
+  document.querySelectorAll('#usuarios-table tbody tr')
+    .forEach(r=>r.style.display=r.dataset.username.includes(t)?'':'none');
+}
+function toggle(u){ document.getElementById('sol-'+u).classList.toggle('collapsed'); }
+
+async function add(u){
+  const tipo=document.getElementById('tipo-'+u).value;
+  const ambiente=document.getElementById('amb-'+u).value;
+  const res=await fetch('/usuarios/'+u+'/solicitacao',{method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({tipo,ambiente})});
+  if(!res.ok) return alert('Falha');
+  const c=document.getElementById('count-'+u);
+  c.textContent=parseInt(c.textContent)+1;
+}
+async function baixar(){
+  const res=await fetch('/usuarios/solicitacoes/pdf',{method:'POST'});
+  if(!res.ok){ const {message}=await res.json().catch(()=>({}));return alert(message||'Erro');}
+  const blob=await res.blob();
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='solicitacoes.pdf';a.click();URL.revokeObjectURL(a.href);
+  location.reload();
+}
+</script></body></html>

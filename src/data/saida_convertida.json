@@ -1,0 +1,39 @@
+[
+  {
+    "username": "vwelter",
+    "nome": "Vitor Hugo Welter",
+    "time": "SI",
+    "ambientes": [
+      { "nome": "LWB", "grupos": ["GRP_LWB_RO", "GRP_LWB_SUDO"] },
+      { "nome": "EQX", "grupos": ["GRP_EQX_RW"] },
+      { "nome": "GCP", "grupos": ["GRP_GCP_VIEW"] },
+      { "nome": "AWS", "grupos": ["GRP_AWS_ADMIN"] }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "rathayde",
+    "nome": "Raul Cataluna Athayde",
+    "time": "SI",
+    "ambientes": [
+      { "nome": "LWB", "grupos": ["GRP_LWB_RO"] },
+      { "nome": "EQX", "grupos": ["GRP_EQX_RO"] },
+      { "nome": "GCP", "grupos": ["GRP_GCP_VIEW"] },
+      { "nome": "AWS", "grupos": ["GRP_AWS_VIEW"] }
+    ],
+    "solicitacoes": []
+  },
+  {
+    "username": "ymachado",
+    "nome": "Yan Carlos Machado",
+    "time": "SI",
+    "ambientes": [
+      { "nome": "LWB", "grupos": ["GRP_LWB_RO"] },
+      { "nome": "EQX", "grupos": ["GRP_EQX_ADMIN"] },
+      { "nome": "GCP", "grupos": ["GRP_GCP_VIEW"] },
+      { "nome": "AWS", "grupos": ["GRP_AWS_POWER"] },
+      { "nome": "B3",  "grupos": ["GRP_B3_FULL"] }
+    ],
+    "solicitacoes": []
+  }
+]
