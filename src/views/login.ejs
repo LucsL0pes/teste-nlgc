@@ -1,99 +1,182 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Login – Gestão de Acessos</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="/public/style.css" />
-    <style>
-      :root {
-        --primary: #00a1f6;
-        --bg: #1b1f26;
-        --card-bg: #252a36;
-        --input-bg: #1e232b;
+<head>
+  <meta charset="UTF-8" />
+  <title>Login – Gestão de Acessos</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    /* --------  RESET  -------- */
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    /* --------  BASE  -------- */
+    body{
+      display:flex;justify-content:center;align-items:center;
+      min-height:100vh;
+      background:#1b1f26;
+      font-family:"Segoe UI","Roboto",sans-serif;
+      color:#e1e4e8;
+      padding:1rem
+    }
+    .card{
+      background:#252a36;
+      padding:2.5rem 2.25rem;
+      border-radius:8px;
+      width:100%;
+      max-width:420px;
+      box-shadow:0 4px 20px rgba(0,0,0,.55);
+      animation:fadeIn .6s ease-out;
+    }
+    @keyframes fadeIn{from{opacity:0;transform:scale(.95)}to{opacity:1}}
+
+    .logo{
+      display:block;
+      margin:0 auto 1rem;
+      max-width:140px;
+      filter:drop-shadow(0 0 4px #00a1f6);
+    }
+    h2{
+      text-align:center;
+      color:#00a1f6;
+      margin-bottom:2rem;
+      font-weight:600;
+      letter-spacing:.3px;
+    }
+
+    /* --------  FORM  -------- */
+    .field{
+      position:relative;
+      margin-bottom:1.25rem;
+    }
+    .field .material-icons{
+      position:absolute;
+      left:.9rem;top:50%;
+      transform:translateY(-50%);
+      color:#00a1f6;
+      pointer-events:none;
+    }
+    .field input{
+      width:100%;
+      padding:.65rem 1rem .65rem 2.75rem;
+      background:#1e232b;
+      border:2px solid transparent;
+      border-radius:4px;
+      color:#e1e4e8;
+      font-size:1rem;
+      transition:border .2s,box-shadow .2s;
+    }
+    .field input:focus{
+      outline:none;
+      border-color:#00a1f6;
+      box-shadow:0 0 0 2px rgba(0,161,246,.3);
+    }
+
+    /* toggle olho */
+    .toggle-pass{
+      position:absolute;
+      right:.8rem;top:50%;
+      transform:translateY(-50%);
+      cursor:pointer;
+      color:#8d9199;
+    }
+
+    /* --------  BUTTON  -------- */
+    .btn{
+      width:100%;
+      padding:.75rem 1rem;
+      background:#00a1f6;
+      border:none;
+      border-radius:4px;
+      color:#fff;
+      font-size:1rem;
+      font-weight:600;
+      cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      gap:.4rem;
+      transition:background .2s;
+    }
+    .btn:hover{background:#007bbf}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
+
+    /* --------  FEEDBACK  -------- */
+    .error{
+      background:#dc3545;
+      color:#fff;
+      border-radius:4px;
+      padding:.5rem .75rem;
+      font-size:.9rem;
+      margin-top:1rem;
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <form class="card" id="loginForm">
+    <img src="../public/logo-nelogica.svg" class="logo" alt="Nelogica Logo">
+    <h2>Gestão de Acessos</h2>
+
+    <!-- usuário -->
+    <div class="field">
+      <span class="material-icons">person</span>
+      <input id="user" name="username" autocomplete="username" placeholder="Usuário" required>
+    </div>
+
+    <!-- senha -->
+    <div class="field">
+      <span class="material-icons"></span>
+      <input id="pass" type="password" name="password" autocomplete="current-password" placeholder="Senha" required>
+      <span class="material-icons toggle-pass" onclick="togglePass()">visibility</span>
+    </div>
+
+    <!-- botão -->
+    <button class="btn" type="submit" id="btnLogin">
+      <span class="material-icons">login</span> Entrar
+    </button>
+
+    <div class="error" id="errBox">Usuário ou senha inválidos.</div>
+  </form>
+
+  <script>
+    // --- mostrar/ocultar senha
+    function togglePass(){
+      const p=document.getElementById('pass');
+      p.type = p.type==='password' ? 'text':'password';
+    }
+
+    // --- submit
+    const form=document.getElementById('loginForm');
+    const btn =document.getElementById('btnLogin');
+    const err =document.getElementById('errBox');
+
+    form.addEventListener('submit', async e=>{
+      e.preventDefault();
+      err.style.display='none';
+      btn.disabled=true;
+
+      const payload={
+        username: form.user.value.trim(),
+        password: form.pass.value
+      };
+
+      try{
+        const r=await fetch('/login',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify(payload)
+        });
+        if(r.ok){
+          location.replace('/usuarios');   // sucesso
+        }else{
+          err.style.display='block';
+        }
+      }catch(_){
+        err.style.display='block';
+      }finally{
+        btn.disabled=false;
       }
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background: var(--bg);
-        font-family: Segoe UI, Arial;
-      }
-      .card {
-        width: 320px;
-        padding: 2rem 3rem;
-        border-radius: 8px;
-        background: var(--card-bg);
-        box-shadow: 0 4px 16px #0008;
-        text-align: center;
-      }
-      h2 {
-        margin: 1rem 0;
-        color: var(--primary);
-      }
-      input {
-        width: 100%;
-        padding: 0.8rem;
-        margin: 0.6rem 0;
-        border: 1px solid #3b414f;
-        border-radius: 4px;
-        background: var(--input-bg);
-        color: #e1e4e8;
-      }
-      .password-wrap { position: relative; }
-      .toggle-pass {
-        position: absolute;
-        right: 0.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        color: #e1e4e8;
-      }
-      button {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        width: 100%;
-        padding: 0.8rem;
-        margin-top: 0.8rem;
-        border: none;
-        border-radius: 4px;
-        background: var(--primary);
-        color: #fff;
-        font-weight: 600;
-        cursor: pointer;
-      }
-      .alert {
-        margin-top: 0.8rem;
-        padding: 0.5rem;
-        border-radius: 4px;
-        background: #c82333;
-        color: #fff;
-      }
-    </style>
-  </head>
-  <body>
-    <form class="card" method="post" action="/login">
-      <img src="/public/logo-nelogica.svg" width="140" draggable="false" alt="Logo Nelogica" />
-      <h2>Gestão de Acessos</h2>
-      <input name="username" placeholder="Usuário" required />
-      <div class="password-wrap">
-        <input id="pass" name="password" type="password" placeholder="Senha" required />
-        <span class="material-icons toggle-pass" onclick="togglePass()">visibility</span>
-      </div>
-      <button type="submit"><span class="material-icons">login</span> Entrar</button>
-      <% if (locals.error) { %>
-        <div class="alert"><%= error %></div>
-      <% } %>
-    </form>
-    <script>
-      function togglePass() {
-        const input = document.getElementById('pass');
-        input.type = input.type === 'password' ? 'text' : 'password';
-      }
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>

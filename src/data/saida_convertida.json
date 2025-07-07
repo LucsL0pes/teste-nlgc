@@ -672,7 +672,12 @@
         ]
       }
     ],
-    "solicitacoes": []
+    "solicitacoes": [
+      {
+        "tipo": "Adicionar",
+        "ambiente": "AWS"
+      }
+    ]
   },
   {
     "username": "sysadmin_user2",

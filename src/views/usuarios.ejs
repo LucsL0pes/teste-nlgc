@@ -1,272 +1,298 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Gestão de Acessos</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="/public/style.css" />
-    <style>
-      :root {
-        --primary: #00a1f6;
-        --bg: #1b1f26;
-        --card-bg: #252a36;
-        --row-alt: #2b303b;
-        --input-bg: #1e232b;
-        --green: #2ecc71;
-        --red: #e74c3c;
-      }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: #e1e4e8;
-        font-family: Segoe UI, Arial;
-      }
-      .container {
-        max-width: 960px;
-        margin: 2rem auto;
-        padding: 0 1rem;
-      }
-      .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-      }
-      .logo {
-        height: 40px;
-      }
-      h2 {
-        margin: 0;
-        color: var(--primary);
-      }
-      .logout-btn {
-        margin: 0;
-        background: var(--primary);
-        color: #fff;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-        cursor: pointer;
-      }
-      .search-box {
-        text-align: right;
-        margin-bottom: 0.5rem;
-      }
-      .search-box input {
-        width: 200px;
-        padding: 0.5rem;
-        border-radius: 4px;
-        border: 1px solid #3b414f;
-        background: var(--input-bg);
-        color: #e1e4e8;
-      }
-      .table-wrapper {
-        overflow-x: auto;
-        background: var(--card-bg);
-        border-radius: 8px;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      th,
-      td {
-        padding: 0.6rem 0.8rem;
-        text-align: left;
-      }
-      th {
-        background: var(--input-bg);
-      }
-      tr:nth-child(even) {
-        background: var(--row-alt);
-      }
-      .badge {
-        display: inline-block;
-        padding: 0.2rem 0.5rem;
-        margin: 0.1rem;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        color: #fff;
-      }
-      .badge.green {
-        background: var(--green);
-      }
-      .badge.red {
-        background: var(--red);
-      }
-      .actions select,
-      .actions button {
-        margin-right: 0.3rem;
-        padding: 0.3rem;
-      }
-      .actions button {
-        background: var(--primary);
-        border: none;
-        border-radius: 4px;
-        color: #fff;
-        cursor: pointer;
-      }
-      .sol-container {
-        min-width: 120px;
-      }
-      .sol-header {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-      }
-      .sol-header .count {
-        margin-left: 0.3rem;
-      }
-      .sol-list {
-        margin-top: 0.3rem;
-      }
-      .sol-list.collapsed {
-        display: none;
-      }
-      .btn-salvar {
-        margin-top: 1rem;
-        padding: 0.6rem 1rem;
-        background: var(--primary);
-        border: none;
-        border-radius: 4px;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        cursor: pointer;
-      }
-      .user-info {
-        display: flex;
-        align-items: center;
-      }
-      .avatar {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        margin-right: 0.5rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <img src="/public/logo-nelogica.svg" class="logo" alt="Nelogica" />
-        <h2>Gestão de Acessos</h2>
-        <button class="logout-btn" onclick="location.href='/logout'">
-          <span class="material-icons">logout</span>
-          Sair
-        </button>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <title>Gestão de Acessos</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-      <div class="search-box">
-        <input id="user-filter" placeholder="🔍 Filtrar por usuário…" oninput="filtrar()" />
-      </div>
+  <style>
+    /* ————————————————— RESET ————————————————— */
+    *{box-sizing:border-box;margin:0;padding:0}
 
-      <div class="table-wrapper">
-        <table id="usuarios-table">
-          <thead>
-            <tr>
-              <th>Usuário</th>
-              <th>Ambientes</th>
-              <th>Ações</th>
-              <th>Solicitações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% usuarios.forEach(user => { %>
-            <tr data-username="<%= user.username.toLowerCase() %>">
-              <td class="user-info">
-                <img class="avatar" src="https://api.dicebear.com/7.x/initials/svg?seed=<%= user.username %>&backgroundColor=00a1f6&textColor=ffffff" alt="<%= user.username %>" />
-                <div>
-                  <strong><%= user.username %></strong><br />
-                  <small><%= user.nome %></small>
-                </div>
-              </td>
-              <td>
-                <% (user.ambientes || []).forEach(env => { %>
-                <span class="badge green" title="<%= env.grupos.join(', ') %>"><%= env.nome %></span>
-                <% }) %>
-                <% (user.ambientesDesabilitados || []).forEach(a => { %>
-                <span class="badge red"><%= a %></span>
-                <% }) %>
-              </td>
-              <td class="actions">
-                <select id="tipo-<%= user.username %>">
-                  <option>Adicionar</option>
-                  <option>Remover</option>
-                </select>
-                <select id="amb-<%= user.username %>">
-                  <% ambientesValidos.forEach(a => { %>
-                  <option><%= a %></option>
-                  <% }) %>
-                </select>
-                <button onclick="add('<%= user.username %>')">
-                  <span class="material-icons">add</span>
-                </button>
-              </td>
-              <td class="sol-container">
-                <div class="sol-header" onclick="toggle('<%= user.username %>')">
-                  <span class="material-icons">list_alt</span>
-                  <span class="count" id="count-<%= user.username %>"><%= (user.solicitacoes || []).length %></span>
-                </div>
-                <div class="sol-list collapsed" id="sol-<%= user.username %>">
-                  <% (user.solicitacoes || []).forEach(s => { %>
-                  <div class="sol-item"><%= s.tipo %> – <%= s.ambiente %></div>
-                  <% }) %>
-                </div>
-              </td>
-            </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      </div>
+    /* ————————————————— LAYOUT / CORES ————————————————— */
+    body{
+      font-family:"Segoe UI",Arial,sans-serif;
+      background:#1b1f26;
+      color:#e1e4e8;
+      padding:2rem;
+    }
+    .container{
+      max-width:1280px;
+      margin:auto;
+      background:#252a36;
+      border-radius:8px;
+      padding:2rem;
+      box-shadow:0 4px 16px rgba(0,0,0,.6);
+      position:relative;
+    }
 
-      <button class="btn-salvar" onclick="baixar()">
-        <span class="material-icons">download</span>
-        Baixar Documento
+    /* ————————————————— LOGOUT ————————————————— */
+    .logout-btn{
+      position:absolute;top:1rem;right:1rem;
+      display:inline-flex;align-items:center;gap:.4rem;
+      background:#dc3545;color:#fff;border:none;border-radius:4px;
+      padding:.5rem 1rem;font-size:.9rem;cursor:pointer
+    }
+    .logout-btn:hover{background:#c82333}
+    .logout-btn .material-icons{font-size:1.2rem}
+
+    /* ————————————————— HEADER ————————————————— */
+    .logo{display:block;margin:0 auto 1rem;max-width:160px;filter:drop-shadow(0 0 4px #00a1f6)}
+    h2{text-align:center;color:#00a1f6;margin-bottom:1rem}
+
+    /* ————————————————— FILTRO ————————————————— */
+    .search-box{display:flex;justify-content:center;position:relative;margin-bottom:1.5rem}
+    .search-box .material-icons{position:absolute;left:1rem;top:50%;transform:translateY(-50%);
+                                color:#00a1f6;font-size:1.4rem}
+    .search-box input{
+      width:320px;padding:.6rem 1rem .6rem 2.6rem;border:none;border-radius:4px;
+      background:#1e232b;color:#e1e4e8;font-size:1rem
+    }
+    .search-box input:focus{outline:none;box-shadow:0 0 0 2px #00a1f6}
+
+    /* ————————————————— TABELA ————————————————— */
+    .table-wrapper{overflow-x:auto}
+    table{width:100%;border-collapse:collapse;min-width:800px}
+    thead th{position:sticky;top:0;background:#1e232b;color:#00a1f6;
+             padding:.75rem;font-weight:600;text-align:left}
+    tbody tr:nth-child(even){background:#2a2f3a}
+    tbody tr:hover{background:#333842}
+    th,td{padding:.6rem .75rem;border-bottom:1px solid #3b414f;vertical-align:top}
+
+    /* ————————————————— BADGES ————————————————— */
+    .badge{display:inline-flex;align-items:center;gap:.25rem;font-size:.8rem;
+           padding:.25rem .6rem;border-radius:4px;margin:.1rem}
+    .badge.green{background:#28a745}.badge.red{background:#dc3545}
+    .badge .material-icons{font-size:1rem}
+
+    /* ————————————————— AÇÕES ————————————————— */
+    .actions{display:flex;gap:.5rem;align-items:center}
+    .actions select,.actions button{
+      padding:.4rem;border:none;border-radius:4px;font-size:.9rem;
+      background:#1e232b;color:#e1e4e8
+    }
+    .actions button{background:#00a1f6;cursor:pointer;display:inline-flex;align-items:center}
+    .actions button:hover{background:#007bbf}
+    .actions .material-icons{font-size:1.2rem;color:#fff}
+    .env-icon{font-size:1.4rem;color:#00a1f6;margin-left:.25rem}
+
+    /* ————————————————— SOLICITAÇÕES ————————————————— */
+    .sol-container{padding-left:1rem;width:200px}
+    .sol-header{cursor:pointer;display:flex;align-items:center;gap:.3rem;font-weight:600}
+    .sol-header .count{background:#00a1f6;color:#fff;padding:.1px .45rem;border-radius:50%;
+                       font-size:.75rem}
+    .sol-list{max-height:100px;overflow-y:auto;margin-top:.5rem;border:1px solid #3b414f;
+              border-radius:4px;padding:.3rem;background:#1e232b;transition:max-height .3s}
+    .sol-list.collapsed{max-height:0;padding:0;border:none}
+    .sol-item{background:#3b414f;padding:.3rem .6rem;border-radius:4px;margin:.2rem 0;
+              font-size:.8rem;display:flex;align-items:center;gap:.3rem;white-space:nowrap}
+    .sol-item .remove-sol{cursor:pointer;margin-left:auto;color:#ff6b6b}
+
+    /* ————————————————— DOWNLOAD BTN ————————————————— */
+    .btn-salvar{margin:1.5rem auto 0;display:inline-flex;align-items:center;gap:.5rem;
+                padding:.75rem 1.5rem;background:#00a1f6;color:#fff;border:none;border-radius:6px;
+                font-size:1rem;cursor:pointer}
+    .btn-salvar:hover{background:#007bbf}
+
+    /* ————————————————— RESPONSIVO ————————————————— */
+    @media(max-width:768px){
+      .actions,.sol-container{display:block}.sol-container{padding-left:0}
+      table{min-width:0}
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <!-- LOGOUT -->
+  <button class="logout-btn" onclick="location.href='/logout'">
+    <span class="material-icons">logout</span> Sair
+  </button>
+
+  <!-- HEADER -->
+  <img src="/logo-nelogica.png" class="logo" alt="Nelogica Logo">
+  <h2>Gestão de Acessos</h2>
+
+  <!-- FILTRO -->
+  <div class="search-box">
+    <span class="material-icons">search</span>
+    <input id="user-filter" placeholder="🔍 Filtrar por usuário..." oninput="filtrar()">
+  </div>
+
+  <!-- TABELA -->
+  <div class="table-wrapper">
+    <table id="usuarios-table">
+      <thead>
+        <tr><th>Usuário</th><th>Ambientes</th><th>Ações</th><th>Solicitações</th></tr>
+      </thead>
+      <tbody>
+<% usuarios.forEach(u=>{ %>
+  <tr data-username="<%= u.username.toLowerCase() %>">
+    <!-- COL USUÁRIO -->
+    <td>
+      <strong><%= u.username %></strong><br>
+      <small><%= u.nome %></small>
+    </td>
+
+    <!-- COL AMBIENTES (COM BADGES) -->
+    <td>
+      <% (u.ambientes||[]).forEach(env=>{ %>
+        <span class="badge green" data-env="<%= env.nome %>" title="<%= env.grupos.join(', ') %>">
+          <span class="material-icons">
+            <%= ({AWS:'cloud_queue',GCP:'cloud_circle',AZR:'cloud_done',B3:'cloud',
+                  EQX:'storage',LWB:'dns',STECH:'desktop_windows',CMD:'device_hub'})[env.nome] %>
+          </span><%= env.nome %>
+        </span>
+      <% }) %>
+      <% (u.ambientesDesabilitados||[]).forEach(env=>{ %>
+        <span class="badge red" data-env="<%= env %>">
+          <span class="material-icons">
+            <%= ({AWS:'cloud_off',GCP:'cloud_off',AZR:'cloud_off',B3:'cloud_off',
+                  EQX:'storage',LWB:'dns',STECH:'desktop_windows',CMD:'device_hub'})[env] %>
+          </span><%= env %>
+        </span>
+      <% }) %>
+    </td>
+
+    <!-- COL AÇÕES -->
+    <td class="actions">
+      <select id="tipo-<%= u.username %>">
+        <option value="Adicionar">➕ Adicionar</option>
+        <option value="Remover">➖ Remover</option>
+      </select>
+
+      <select id="amb-<%= u.username %>" onchange="updateEnvIcon('<%= u.username %>')">
+        <% ambientesValidos.forEach(a=>{ %>
+          <option value="<%= a %>"><%= a %></option>
+        <% }) %>
+      </select>
+
+      <span id="env-ico-<%= u.username %>" class="material-icons env-icon">cloud</span>
+
+      <button title="Nova solicitação" onclick="adicionarSolicitacao('<%= u.username %>')">
+        <span class="material-icons">add_circle_outline</span>
       </button>
-    </div>
+    </td>
 
-    <script>
-      function filtrar() {
-        const t = document.getElementById('user-filter').value.toLowerCase();
-        document.querySelectorAll('#usuarios-table tbody tr').forEach(r => {
-          r.style.display = r.dataset.username.includes(t) ? '' : 'none';
-        });
-      }
-      function toggle(u) {
-        document.getElementById('sol-' + u).classList.toggle('collapsed');
-      }
-      async function add(u) {
-        const tipo = document.getElementById('tipo-' + u).value;
-        const ambiente = document.getElementById('amb-' + u).value;
-        const res = await fetch('/usuarios/' + u + '/solicitacao', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ tipo, ambiente })
-        });
-        if (!res.ok) return alert('Falha');
-        const c = document.getElementById('count-' + u);
-        c.textContent = parseInt(c.textContent) + 1;
-      }
-      async function baixar() {
-        const res = await fetch('/usuarios/solicitacoes/pdf', { method: 'POST' });
-        if (!res.ok) {
-          const { message } = await res.json().catch(() => ({}));
-          return alert(message || 'Erro');
-        }
-        const blob = await res.blob();
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'solicitacoes.pdf';
-        a.click();
-        URL.revokeObjectURL(a.href);
-        location.reload();
-      }
-    </script>
-  </body>
+    <!-- COL SOLICITAÇÕES -->
+    <td class="sol-container">
+      <div class="sol-header" onclick="toggleSolicitacoes('<%= u.username %>')">
+        <span class="material-icons">list_alt</span>Solicitações
+        <span id="count-<%= u.username %>" class="count"><%= (u.solicitacoes||[]).length %></span>
+      </div>
+      <div id="sol-<%= u.username %>" class="sol-list collapsed">
+        <% (u.solicitacoes||[]).forEach(s=>{ %>
+          <div class="sol-item" data-tipo="<%= s.tipo %>" data-amb="<%= s.ambiente %>">
+            <span class="material-icons">assignment_turned_in</span>
+            <%= s.tipo %> – <%= s.ambiente %>
+            <span class="material-icons remove-sol" title="Remover"
+                  onclick="removerSolicitacao('<%= u.username %>','<%= s.tipo %>','<%= s.ambiente %>',this)">
+              delete
+            </span>
+          </div>
+        <% }) %>
+      </div>
+    </td>
+  </tr>
+<% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BOTÃO DOWNLOAD -->
+  <button class="btn-salvar" onclick="baixarEZerar()">
+    <span class="material-icons">download</span> Baixar Documento
+  </button>
+</div>
+
+<!-- ————————————————— SCRIPT ————————————————— -->
+<script>
+/* Util */
+const qs = s=>document.querySelector(s);
+
+/* Filtro por nome */
+function filtrar(){
+  const t=qs('#user-filter').value.toLowerCase();
+  document.querySelectorAll('#usuarios-table tbody tr')
+    .forEach(r=>r.style.display=r.dataset.username.includes(t)?'':'none');
+}
+
+/* Mostrar/ocultar lista */
+function toggleSolicitacoes(u){
+  qs('#sol-'+u).classList.toggle('collapsed');
+}
+
+/* Icone dinâmico */
+function updateEnvIcon(u){
+  const v=qs('#amb-'+u).value;
+  const map={AWS:'cloud',GCP:'cloud',AZR:'cloud',B3:'cloud',
+             EQX:'storage',LWB:'dns',STECH:'storage',CMD:'device_hub'};
+  qs('#env-ico-'+u).textContent=map[v]||'cloud';
+}
+
+/* Helper: o usuário tem o ambiente habilitado? */
+function ambienteHabilitado(row, amb){
+  return [...row.querySelectorAll('.badge.green')].some(b=>b.dataset.env===amb);
+}
+
+/* Helper: existe solicitação duplicada? */
+function solicitacaoExiste(row,tipo,amb){
+  return !!row.querySelector(`.sol-item[data-tipo="${tipo}"][data-amb="${amb}"]`);
+}
+
+/* Adicionar solicitação */
+async function adicionarSolicitacao(u){
+  const tipo = qs('#tipo-'+u).value;
+  const amb  = qs('#amb-'+u).value;
+  const row  = qs(`tr[data-username="${u.toLowerCase()}"]`);
+
+  /* —— Validações —— */
+  if(solicitacaoExiste(row,tipo,amb)) return alert('Solicitação já lançada!');
+  const habilitado = ambienteHabilitado(row,amb);
+  if(tipo==='Adicionar' && habilitado) return alert('Ambiente já habilitado!');
+  if(tipo==='Remover'   && !habilitado) return alert('Ambiente já desabilitado!');
+
+  /* —— Back-end —— */
+  const res = await fetch(`/usuarios/${u}/solicitacao`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({tipo,ambiente:amb})
+  });
+  if(!res.ok){alert('Erro ao adicionar');return}
+
+  /* —— Front —— */
+  const list = qs('#sol-'+u);
+  const c    = qs('#count-'+u);
+  const div  = document.createElement('div');
+  div.className='sol-item';div.dataset.tipo=tipo;div.dataset.amb=amb;
+  div.innerHTML=`<span class="material-icons">assignment_turned_in</span>${tipo} – ${amb}
+                 <span class="material-icons remove-sol" title="Remover"
+                 onclick="removerSolicitacao('${u}','${tipo}','${amb}',this)">delete</span>`;
+  list.appendChild(div); c.textContent=+c.textContent+1;
+}
+
+/* Remover solicitação */
+async function removerSolicitacao(u,tipo,amb,iconEl){
+  if(!confirm(`Remover "${tipo} – ${amb}"?`)) return;
+  const res = await fetch(`/usuarios/${u}/solicitacao`,{
+    method:'DELETE',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({tipo,ambiente:amb})
+  });
+  if(!res.ok){alert('Falha ao remover');return;}
+  iconEl.closest('.sol-item').remove();
+  const c = qs('#count-'+u); c.textContent=+c.textContent-1;
+}
+
+/* Baixar PDF + zerar */
+async function baixarEZerar(){
+  const res = await fetch('/usuarios/solicitacoes/pdf',{method:'POST',credentials:'include'});
+  if(!res.ok){alert((await res.json()).message||'Falha');return}
+  const blob=await res.blob(),url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download='solicitacoes.pdf';a.click();
+  URL.revokeObjectURL(url);location.reload();
+}
+</script>
+</body>
 </html>

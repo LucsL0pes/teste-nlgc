@@ -1,0 +1,48 @@
+:root {
+  --primary: #00a1f6;
+  --bg: #1b1f26;
+  --card-bg: #252a36;
+  --row-alt: #2b303b;
+  --input-bg: #1e232b;
+  --green: #2ecc71;
+  --red: #e74c3c;
+}
+body {
+  background: var(--bg);
+  color: #e1e4e8;
+  font-family: Segoe UI, Arial, sans-serif;
+  margin: 0;
+}
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+}
+.logout-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+
